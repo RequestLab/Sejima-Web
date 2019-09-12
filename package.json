@@ -1,0 +1,24 @@
+{
+    "name": "sejima-web",
+    "version": "1.0.0",
+    "description": "Theme Sejima for web app",
+    "main": "index.js",
+    "scripts": {
+        "build-css": "node-sass --include-path scss scss/sejima.scss dist/css/sejima.css",
+        "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RequestLab/Sejima-Web.git"
+    },
+    "author": "RequestLab",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/RequestLab/Sejima-Web/issues"
+    },
+    "homepage": "https://github.com/RequestLab/Sejima-Web#readme",
+    "devDependencies": {
+        "node-sass": "^4.12.0",
+        "nodemon": "^1.19.2"
+    }
+}
