@@ -1,7 +1,11 @@
 @import "https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap";
 
+@import "base/mixin";
 @import "base/variables";
 @import "base/typography";
 
 @import "components/button";
 @import "components/tag";
+@import "components/stat";
+@import "components/avatar";
+@import "components/time";

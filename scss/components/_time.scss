@@ -1,0 +1,125 @@
+// .sj-time {
+//     position:relative;
+//     display: inline-block;
+//     border-radius: 100%;
+//     background-color: $sj-primary;
+//     padding: 15px;
+
+//     &:before {
+//         content:"";
+//         border-radius: 100%;
+//         position: absolute;
+//         left: -5px;
+//         top: -5px;
+//         right: -5px;
+//         bottom: -5px;
+//         border: 3px solid $sj-primary;
+//     }
+// }
+
+// -- vars
+$default-size: 1em;
+$label-font-size: $default-size / 4;
+$label-font-size-redo: $default-size * 4;
+
+// -- mixins
+@mixin size($width, $height) {
+    height: $height;
+    width: $width;
+}
+
+@mixin draw-progress($progress) {
+    .pie {
+        .half-circle {
+            border-color: $sj-primary;
+        }
+
+        .left-side {
+            transform: rotate($progress * 3.6deg);
+        }
+
+        @if $progress <= 50 {
+            .right-side {
+                display: none;
+            }
+        } @else {
+            clip: rect(auto, auto, auto, auto);
+
+            .right-side {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.sj-time {
+    font-size: 10em;
+
+    @include size($default-size, $default-size);
+    float: left;
+    margin: 15px;
+    position: relative;
+
+    &:nth-child(3n + 1) {
+        clear: both;
+    }
+
+    .pie {
+        @include size(100%, 100%);
+        clip: rect(0, $default-size, $default-size, $default-size / 2);
+        left: 0;
+        position: absolute;
+        top: 0;
+
+        .half-circle {
+            @include size(100%, 100%);
+            border: ($default-size / 10) solid #3498db;
+            border-radius: 50%;
+            clip: rect(0, $default-size / 2, $default-size, 0);
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    .label {
+        background: $sj-secondary;
+        border-radius: 50%;
+        bottom: $label-font-size-redo / 10;
+        color: #ecf0f1;
+        cursor: default;
+        display: block;
+        font-size: $label-font-size;
+        left: $label-font-size-redo / 10;
+        line-height: $label-font-size-redo * .70;
+        position: absolute;
+        right: $label-font-size-redo / 10;
+        text-align: center;
+        top: $label-font-size-redo / 10;
+    }
+
+    &.progress-30 {
+        @include draw-progress(30);
+    }
+
+    &.progress-60 {
+        @include draw-progress(60);
+    }
+
+    &.progress-90 {
+        @include draw-progress(90);
+    }
+
+    &.progress-45 {
+        @include draw-progress(45);
+    }
+
+    &.progress-75 {
+        @include draw-progress(75);
+    }
+
+    &.progress-95 {
+        @include draw-progress(95);
+    }
+}
+

@@ -1,12 +1,17 @@
 .sj-btn {
+    @include transition(background-color .2s ease);
+
     background-color: $sj-primary;
-    color: $sj-text-color;
     text-decoration: none;
     text-transform: uppercase;
     padding: 15px 30px;
     display: inline-block;
     border-radius: 5px;
     border: 2px solid $sj-text-color;
+
+    &:hover {
+        background-color: transparent;
+    }
 }
 
 .sj-btn-minimal {
