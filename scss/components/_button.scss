@@ -1,0 +1,14 @@
+.sj-btn {
+    background-color: $sj-primary;
+    color: $sj-text-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid $sj-text-color;
+}
+
+.sj-btn-minimal {
+    background-color: transparent;
+}
