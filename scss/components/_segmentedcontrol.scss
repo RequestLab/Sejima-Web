@@ -21,8 +21,7 @@
     }
 
     label {
-        @include transition(background-color .5s ease);
-        @include transition(color .2s ease);
+        @include transition(background-color .2s ease);
 
         cursor: pointer;
         display: inline-block;
