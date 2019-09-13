@@ -1,7 +1,7 @@
-.sj-time {
+.sj-circular-progress {
     @extend .sj-text;
 
-	$circle-size: 60px;
+	$circle-size: 160px;
 	$transition-length: 1s;
 
 	width: $circle-size;
@@ -9,7 +9,8 @@
 
 	border-radius: 50%;
 
-    .sj-time-mask, .sj-time-mask:before {
+    .sj-circular-progress-mask, .sj-circular-progress-mask:before {
+        z-index:20;
         content:"";
         width: $circle-size;
         height: $circle-size;
@@ -20,34 +21,34 @@
         transition: transform $transition-length;
         border-radius: 50%;
     }
-    .sj-time-mask {
+    .sj-circular-progress-mask {
         clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
 
         &:before {
             clip: rect(0px, $circle-size/2, $circle-size, 0px);
-            border: 5px solid $sj-primary;
+            border: 10px solid $sj-primary;
         }
     }
 
-    .sj-time-text {
-        width: $circle-size - 16px;
-        height: $circle-size - 16px;
+    .sj-circular-progress-text {
+        @extend .sj-text-light;
+
+        z-index:10;
+        width: $circle-size;
+        height: $circle-size;
         position: absolute;
-        line-height: $circle-size; 
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 8px;
-        margin-top: 8px;
 
-        background-color: $sj-primary;
+        border: 10px solid $sj-fourth;
         border-radius: 50%;
     }
 
     $increment: 180deg / 100;
     @for $i from 0 through 100 {
         &[data-progress="#{$i}"] {
-            .sj-time-mask:nth-child(2), .sj-time-mask:before {
+            .sj-circular-progress-mask:nth-child(2), .sj-circular-progress-mask:before {
                 @keyframes play-#{$i} {
                     from { 
                         -webkit-transform: rotate(0deg);

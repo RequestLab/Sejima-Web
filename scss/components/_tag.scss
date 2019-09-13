@@ -1,4 +1,6 @@
 .sj-tag {
+    @extend .sj-text;
+
     background-color: $sj-primary;
     color: $sj-text-color;
     text-transform: uppercase;

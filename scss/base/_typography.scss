@@ -5,10 +5,18 @@
   box-sizing: border-box;
 }
 
-*[class^='sj-']{
+.sj-text {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     color: $sj-text-color;
 
     @include font-size($sj-fontsize);
+}
+
+.sj-text-big {
+    @include font-size($sj-fontsize-big);
+}
+
+.sj-text-light {
+    font-weight: 400!important;
 }

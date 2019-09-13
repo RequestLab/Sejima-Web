@@ -1,16 +1,19 @@
 .sj-stat {
+    @extend .sj-text;
+    @extend .sj-text-light;
+
     @include font-size($sj-fontsize-big);
 
     display: inline-block;
-    font-weight: 400;
 
     .sj-stat-unit {
+        @include font-size($sj-fontsize);
         margin-left:5px;
         color: $sj-text-color-alt;
-        font-weight: 400;
     }
 
     .sj-stat-text {
+        @include font-size($sj-fontsize);
         margin-top: 5px;
         color: $sj-text-color-alt;
     }

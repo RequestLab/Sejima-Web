@@ -1,4 +1,6 @@
 .sj-btn {
+    @extend .sj-text;
+
     @include transition(background-color .2s ease);
 
     background-color: $sj-primary;
