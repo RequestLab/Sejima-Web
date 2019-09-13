@@ -1,125 +1,66 @@
-// .sj-time {
-//     position:relative;
-//     display: inline-block;
-//     border-radius: 100%;
-//     background-color: $sj-primary;
-//     padding: 15px;
-
-//     &:before {
-//         content:"";
-//         border-radius: 100%;
-//         position: absolute;
-//         left: -5px;
-//         top: -5px;
-//         right: -5px;
-//         bottom: -5px;
-//         border: 3px solid $sj-primary;
-//     }
-// }
-
-// -- vars
-$default-size: 1em;
-$label-font-size: $default-size / 4;
-$label-font-size-redo: $default-size * 4;
-
-// -- mixins
-@mixin size($width, $height) {
-    height: $height;
-    width: $width;
-}
-
-@mixin draw-progress($progress) {
-    .pie {
-        .half-circle {
-            border-color: $sj-primary;
-        }
-
-        .left-side {
-            transform: rotate($progress * 3.6deg);
-        }
-
-        @if $progress <= 50 {
-            .right-side {
-                display: none;
-            }
-        } @else {
-            clip: rect(auto, auto, auto, auto);
-
-            .right-side {
-                transform: rotate(180deg);
-            }
-        }
-    }
-}
-
 .sj-time {
-    font-size: 10em;
+	$circle-size: 60px;
+	$transition-length: 1s;
 
-    @include size($default-size, $default-size);
-    float: left;
-    margin: 15px;
-    position: relative;
+	width: $circle-size;
+	height: $circle-size;
 
-    &:nth-child(3n + 1) {
-        clear: both;
-    }
+	border-radius: 50%;
 
-    .pie {
-        @include size(100%, 100%);
-        clip: rect(0, $default-size, $default-size, $default-size / 2);
-        left: 0;
+    .sj-time-mask, .sj-time-mask:before {
+        content:"";
+        width: $circle-size;
+        height: $circle-size;
         position: absolute;
-        top: 0;
+        -webkit-backface-visibility: hidden;
+        transition: -webkit-transform $transition-length;
+        transition: -ms-transform $transition-length;
+        transition: transform $transition-length;
+        border-radius: 50%;
+    }
+    .sj-time-mask {
+        clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
 
-        .half-circle {
-            @include size(100%, 100%);
-            border: ($default-size / 10) solid #3498db;
-            border-radius: 50%;
-            clip: rect(0, $default-size / 2, $default-size, 0);
-            left: 0;
-            position: absolute;
-            top: 0;
+        &:before {
+            clip: rect(0px, $circle-size/2, $circle-size, 0px);
+            border: 5px solid $sj-primary;
         }
     }
 
-    .label {
-        background: $sj-secondary;
-        border-radius: 50%;
-        bottom: $label-font-size-redo / 10;
-        color: #ecf0f1;
-        cursor: default;
-        display: block;
-        font-size: $label-font-size;
-        left: $label-font-size-redo / 10;
-        line-height: $label-font-size-redo * .70;
+    .sj-time-text {
+        width: $circle-size - 16px;
+        height: $circle-size - 16px;
         position: absolute;
-        right: $label-font-size-redo / 10;
-        text-align: center;
-        top: $label-font-size-redo / 10;
+        line-height: $circle-size; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 8px;
+        margin-top: 8px;
+
+        background-color: $sj-primary;
+        border-radius: 50%;
     }
 
-    &.progress-30 {
-        @include draw-progress(30);
-    }
+    $increment: 180deg / 100;
+    @for $i from 0 through 100 {
+        &[data-progress="#{$i}"] {
+            .sj-time-mask:nth-child(2), .sj-time-mask:before {
+                @keyframes play-#{$i} {
+                    from { 
+                        -webkit-transform: rotate(0deg);
+                        -ms-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                    }
+                    to { 
+                        -webkit-transform: rotate($increment * $i);
+                        -ms-transform: rotate($increment * $i);
+                        transform: rotate($increment * $i);
+                    }
+                }
 
-    &.progress-60 {
-        @include draw-progress(60);
-    }
-
-    &.progress-90 {
-        @include draw-progress(90);
-    }
-
-    &.progress-45 {
-        @include draw-progress(45);
-    }
-
-    &.progress-75 {
-        @include draw-progress(75);
-    }
-
-    &.progress-95 {
-        @include draw-progress(95);
+                -webkit-animation: play-#{$i} .8s ease forwards;
+            }
+        }
     }
 }
-
