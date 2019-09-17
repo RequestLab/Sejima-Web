@@ -6,15 +6,11 @@
 }
 
 .sj-text {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     color: $sj-text-color;
 
     @include font-size($sj-fontsize);
-}
-
-.sj-text-color-alt {
-    color: $sj-bg-primary!important;
 }
 
 .sj-text-big {
