@@ -1,0 +1,9 @@
+.sj-header {
+    @extend .sj-text;
+    @extend .sj-text-big;
+    
+    .sj-header-light {
+        @extend .sj-text;
+        @extend .sj-text-light;
+    }
+}

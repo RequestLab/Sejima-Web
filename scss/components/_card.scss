@@ -1,0 +1,16 @@
+.sj-card {
+    @extend .sj-text;
+
+    padding: 25px;
+    background-color: $sj-white;
+    border-radius: 10px;
+    color: #000;
+
+    .sj-card-header {
+        @extend .sj-text-big;
+    }
+    .sj-card-body {
+        @extend .sj-text-light;
+    }
+}
+

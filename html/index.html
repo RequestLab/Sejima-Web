@@ -6,74 +6,103 @@
         <link media="all" rel="stylesheet" href="../dist/css/sejima.css" />
 
         <style type="text/css" media="all">
-            h1 { color: #fff; }
+            h1 { color: #fff; border-bottom: 2px solid #fff; }
             body { background-color: #001822; }
+            .column { width: 33%; float:left; padding: 0 15px; }
         </style>
     </head>
     <body>
-        <h1>SJ segmented control</h1>
+        <div class="column">
+            <h1>SJ segmented control</h1>
 
-        <div class="sj-segmented-control">
-            <input type="radio" id="radioApple" name="radioFruit" value="apple" checked>
-            <label for="radioApple">Giant radio text to test</label>
+            <div class="sj-segmented-control">
+                <input type="radio" id="radioApple" name="radioFruit" value="apple" checked>
+                <label for="radioApple">Giant radio text to test</label>
 
-            <input type="radio" id="radioBanana" name="radioFruit" value="banana">
-            <label for="radioBanana">Banana</label>
+                <input type="radio" id="radioBanana" name="radioFruit" value="banana">
+                <label for="radioBanana">Banana</label>
 
-            <input type="radio" id="radioOrange" name="radioFruit" value="orange">
-            <label for="radioOrange">Orange</label>
-        </div>
+                <input type="radio" id="radioOrange" name="radioFruit" value="orange">
+                <label for="radioOrange">Orange</label>
+            </div>
 
-        <h1>SJ Button</h1>
+            <h1>SJ Button</h1>
 
-        <a href="#" class="sj-btn">Submit</a>
-        <a href="#" class="sj-btn sj-btn-minimal">Submit</a>
+            <a href="#" class="sj-btn">Submit</a>
+            <a href="#" class="sj-btn sj-btn-minimal">Submit</a>
 
-        <h1>SJ Tag</h1>
+            <h1>SJ Header</h1>
 
-        <span class="sj-tag">Submit</span>
-
-        <h1>SJ Stat</h1>
-
-        <div class="sj-stat">
-            0<span class="sj-stat-unit">kg</span>
-            <div class="sj-stat-text">workout complete</div>
-        </div>
-
-        <h1>SJ Avatar</h1>
-
-        <img class="sj-avatar" src="./images/placeholder.jpg" height="100" width="100" />
-
-        <h1>SJ Time</h1>
-
-        <div class="sj-time" data-progress="60">
-            <div class="sj-time-mask"></div>
-            <div class="sj-time-mask"></div>
-
-            <div class="sj-time-text">10'</div>
-        </div>
-
-        <h1>SJ Circular progress</h1>
-
-        <div class="sj-circular-progress" data-progress="60">
-            <div class="sj-circular-progress-mask"></div>
-            <div class="sj-circular-progress-mask"></div>
-
-            <div class="sj-circular-progress-text">
-                <div>
-                    <div class="sj-text-big">
-                        1/3 
-                    </div>
-                    <div>download</div>
+            <div class="sj-header">
+                Improve
+                
+                <div class="sj-header-light">
+                    Just get up and move !
                 </div>
             </div>
+
+            <h1>SJ Card</h1>
+
+            <div class="sj-card">
+                <div class="sj-card-header">
+                    Improve
+                </div>
+                <div class="sj-card-body">
+                    Just get up and move
+                </div>
+            </div>
+
         </div>
 
-        <h1>SJ TextField</h1>
+        <div class="column">
+            <h1>SJ Tag</h1>
 
-        <div class="sj-form-group">
-            <label for="test">Title</label>
-            <input type="text" class="sj-form-control" id="test" placeholder="content">
+            <span class="sj-tag">Submit</span>
+
+            <h1>SJ Stat</h1>
+
+            <div class="sj-stat">
+                0<span class="sj-stat-unit">kg</span>
+                <div class="sj-stat-text">workout complete</div>
+            </div>
+
+            <h1>SJ Avatar</h1>
+
+            <img class="sj-avatar" src="./images/placeholder.jpg" height="100" width="100" />
+        </div>
+
+        <div class="column">
+            <h1>SJ Time</h1>
+
+            <div class="sj-time" data-progress="60">
+                <div class="sj-time-mask"></div>
+                <div class="sj-time-mask"></div>
+
+                <div class="sj-time-text">10'</div>
+            </div>
+
+            <h1>SJ Circular progress</h1>
+
+            <div class="sj-circular-progress" data-progress="60">
+                <div class="sj-circular-progress-mask"></div>
+                <div class="sj-circular-progress-mask"></div>
+
+                <div class="sj-circular-progress-text">
+                    <div>
+                        <div class="sj-text-big">
+                            1/3 
+                        </div>
+                        <div>download</div>
+                    </div>
+                </div>
+            </div>
+
+            <h1>SJ TextField</h1>
+
+            <div class="sj-form-group">
+                <label for="test">Title</label>
+                <input type="text" class="sj-form-control" id="test" placeholder="content">
+            </div>
         </div>
     </body>
 </html>
